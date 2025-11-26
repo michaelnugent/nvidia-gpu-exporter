@@ -2,7 +2,7 @@
 name = "nvidia-gpu-exporter"
 version = "1.0.0"
 edition = "2021"
-authors = ["Mike Nugent <mike@michaelnugent.org>"]
+authors = ["Mike Nugent <michael@michaelnugent.org>"]
 description = "Prometheus exporter for NVIDIA GPUs using NVML"
 license = "MIT"
 repository = "https://github.com/michaelnugent/nvidia-gpu-exporter"

@@ -1,0 +1,30 @@
+services:
+  nvidia-gpu-exporter:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        WEB_LISTEN_PORT: ${WEB_LISTEN_PORT:-9445}
+        WEB_TELEMETRY_PATH: ${WEB_TELEMETRY_PATH:-/metrics}
+    image: nvidia-gpu-exporter:latest
+    container_name: nvidia-gpu-exporter
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    ports:
+      - "${WEB_LISTEN_PORT:-9445}:${WEB_LISTEN_PORT:-9445}"
+    environment:
+      - WEB_LISTEN_PORT=${WEB_LISTEN_PORT:-9445}
+      - WEB_TELEMETRY_PATH=${WEB_TELEMETRY_PATH:-/metrics}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${WEB_LISTEN_PORT:-9445}${WEB_TELEMETRY_PATH:-/metrics}"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+

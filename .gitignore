@@ -1,0 +1,18 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+# Cargo.lock is typically committed for binaries/applications
+# Uncomment the line below if you want to ignore it
+# Cargo.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

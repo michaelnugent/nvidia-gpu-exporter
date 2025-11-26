@@ -86,9 +86,9 @@ async fn main() -> anyhow::Result<()> {
                 Html(
                     r#"
                     <html>
-                        <head><title>NVML Exporter</title></head>
+                        <head><title>NVIDIA GPU Exporter</title></head>
                         <body>
-                            <h1>NVML Exporter</h1>
+                            <h1>NVIDIA GPU Exporter</h1>
                             <p><a href='/metrics'>Metrics</a></p>
                         </body>
                     </html>

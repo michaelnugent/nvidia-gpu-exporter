@@ -16,8 +16,6 @@ RUN cargo build --release
 FROM debian:trixie-slim
 
 # Install basic dependencies
-# Note: libnvidia-ml.so.1 should be provided by NVIDIA Container Toolkit
-# when running with --gpus flag. The library is mounted from the host.
 RUN sed -i 's/ main$/ main contrib non-free/g' /etc/apt/sources.list.d/debian.sources
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
